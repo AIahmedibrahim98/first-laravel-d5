@@ -38,6 +38,9 @@
                         <h1>Number Is Not One</h1>
                     @endif
                     @php($number = 3)
+                    @php
+                        
+                    @endphp
                     @switch($number)
                         @case(1)
                         <h1 class="text-primary">Number Is One</h1>

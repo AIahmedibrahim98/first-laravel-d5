@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,4 +62,19 @@ Route::prefix('calculator')->as("calculator.")->group(function () {
     Route::get('/sum/{x}/{y}/{z}',[CalculatorController::class,'sum'])->name('sum');
 
     Route::get('show',[CalculatorController::class,'show'])->name('show');
+});
+Route::view('demo','demo1');
+Route::view('master','master');
+
+
+Route::prefix('categories')->as("categories.")->group(function () {
+    Route::get('/',[CategoryController::class,'index'])->name('index');
+});
+Route::prefix('products')->as("products.")->group(function () {
+    Route::get('/',function(){
+        return view('products.index');
+    })->name('index');
+    Route::get('/show',function(){
+        return view('products.show');
+    })->name('show');
 });
