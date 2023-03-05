@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
@@ -78,3 +79,6 @@ Route::prefix('products')->as("products.")->group(function () {
         return view('products.show');
     })->name('show');
 });
+
+
+Route::get('/blog',[BlogController::class,'index']);
