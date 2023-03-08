@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('testing', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name'); // varchar
+            $table->text('long_name')->nullable();
+            $table->string('email')->unique();
+            $table->string('type')->default('instractor');
+            $table->boolean('is_active');
+            $table->enum('role',['user','admin','student'])->default('user');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('testing');
     }
 };

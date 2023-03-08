@@ -70,6 +70,7 @@ Route::view('master','master');
 
 Route::prefix('categories')->as("categories.")->group(function () {
     Route::get('/',[CategoryController::class,'index'])->name('index');
+    Route::get('/db',[CategoryController::class,'manageTable'])->name('manageTable');
 });
 Route::prefix('products')->as("products.")->group(function () {
     Route::get('/',function(){
