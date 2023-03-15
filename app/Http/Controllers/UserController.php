@@ -14,4 +14,6 @@ class UserController extends Controller
     {
         echo "Delete User";
     }
+
+    
 }
